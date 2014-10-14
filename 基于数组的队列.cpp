@@ -43,7 +43,7 @@ bool MyQueue<QueueEntry>::empty() const {
 }
 template<class QueueEntry>
 ErrorCode MyQueue<QueueEntry>::append(const QueueEntry &item) {
-	if (count >= maxQueue - 1) {
+	if (count >= maxQueue) {
 		return overflow;
 	}
 	count++;
@@ -70,7 +70,7 @@ ErrorCode MyQueue<QueueEntry>::retrieve(QueueEntry &item) const {
 }
 template<class QueueEntry>
 bool MyQueue<QueueEntry>::full() const {
-    return count == maxQueue - 1;
+    return count == maxQueue;
 }
 template<class QueueEntry>
 void MyQueue<QueueEntry>::clear() {
